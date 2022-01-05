@@ -36,6 +36,9 @@ See also the list of [contributors](https://github.com/pjlplourde/UnitConversion
 
 ## Version History
 
+-    0.0.0.4
+     -    Updated Acknowledgments section of README.md (missed in 0.0.0.2)
+     -    Created Model and processing classes in class library and test class in unit test project
 -    0.0.0.3
      -    Updated Assembly and File versions in Project files
 -    0.0.0.2
@@ -81,10 +84,9 @@ Project Link: https://github.com/pjlplourde/UnitConversionApp
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
+This project was created as part of the C# Challenge from [Tim Corey](https://www.iamtimcorey.com/)
 
--    [awesome-readme](https://github.com/matiassingers/awesome-readme)
--    [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
--    [dbader](https://github.com/dbader/readme-template)
--    [zenorocha](https://gist.github.com/zenorocha/4526327)
--    [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+-    [C# Challenge for 2022 and Beyond](https://www.youtube.com/watch?v=Dn_xVbIn8iw)
+-    [My Blog site](https://spartancsharp.net/)
+
+A big thank you to all contributors.
