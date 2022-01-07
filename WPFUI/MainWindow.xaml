@@ -1,12 +1,49 @@
-﻿<Window x:Class="WPFUI.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFUI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+﻿<Window x:Name="UnitConverter" x:Class="WPFUI.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WPFUI"
+		mc:Ignorable="d" Title="Unit Converter" Height="450" Width="800" FontSize="24">
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition Width="auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
-    </Grid>
+		<TextBlock x:Name="headingTextBlock" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" Text="Unit Converter"
+				FontSize="48" FontWeight="Bold" Margin="5" Padding="2" />
+
+		<TextBlock x:Name="dimensionTextBlock" Grid.Column="1" Grid.Row="1" Text="Select Conversion Type:"
+				FontWeight="SemiBold" Margin="5" Padding="2" />
+		<ComboBox x:Name="dimensionComboBox" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" Padding="2" />
+
+		<TextBlock x:Name="inputQuantityTextBlock" Grid.Column="1" Grid.Row="2" Text="Quantity to Convert:"
+				FontWeight="SemiBold" Margin="5" Padding="2" />
+		<TextBox x:Name="inputQuantityTextBox" Grid.Column="2" Grid.Row="2" Margin="5" Padding="2" Width="120" />
+		<ComboBox x:Name="inputUnitComboBox" Grid.Column="3" Grid.Row="2" Width="120" Margin="5" Padding="2" />
+
+		<TextBlock x:Name="outputUnitTextBlock" Grid.Column="1" Grid.Row="3" Text="Convert to:" FontWeight="SemiBold"
+				Margin="5" Padding="2" />
+		<TextBlock x:Name="outputQuantityTextBlock" Grid.Column="2" Grid.Row="3" Margin="5" Padding="2" />
+		<ComboBox x:Name="outputUnitComboBox" Grid.Column="3" Grid.Row="3" Width="120" Margin="5" Padding="2" />
+
+		<Button x:Name="convertButton" Grid.Column="1" Grid.Row="4" Content="Convert" HorizontalAlignment="Stretch"
+				Margin="5" Padding="2" />
+		<Button x:Name="clearButton" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Content="Clear"
+				HorizontalAlignment="Stretch" Margin="5" Padding="2" />
+
+		<TextBlock x:Name="resultsTextBlock" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" Padding="2" />
+	</Grid>
 </Window>

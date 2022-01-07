@@ -36,6 +36,11 @@ See also the list of [contributors](https://github.com/pjlplourde/UnitConversion
 
 ## Version History
 
+-    0.0.0.6
+     -    UI Design executed for MainWindow.xaml
+     -    Fixed problem in UnitConversionLibrary.UnitConverter.Convert where there was no input parameter for selected output unit
+     -    Fixed problem in UnitConversionLibrary.UnitConverter.Convert where output did not output a data model (including number of significant digits)
+     -    Added Unit Tests for Length Conversions
 -    0.0.0.5
      -    Added .gitattributes file from Visual Studio
 -    0.0.0.4
