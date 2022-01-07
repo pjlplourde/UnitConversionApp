@@ -36,6 +36,8 @@ See also the list of [contributors](https://github.com/pjlplourde/UnitConversion
 
 ## Version History
 
+-    0.0.0.5
+     -    Added .gitattributes file from Visual Studio
 -    0.0.0.4
      -    Updated Acknowledgments section of README.md (missed in 0.0.0.2)
      -    Created Model and processing classes in class library and test class in unit test project
