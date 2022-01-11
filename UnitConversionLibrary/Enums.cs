@@ -7,7 +7,7 @@
 		Temperature
 	}
 
-	public enum Length
+	public enum LengthUnit
 	{
 		metres,
 		centimetres,

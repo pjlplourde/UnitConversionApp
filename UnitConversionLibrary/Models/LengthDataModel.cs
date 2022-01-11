@@ -2,6 +2,6 @@
 {
 	public class LengthDataModel : DataModelBase
 	{
-		public Length Units { get; set; }
+		public LengthUnit Units { get; set; }
 	}
 }
