@@ -27,7 +27,8 @@
 
 		<TextBlock x:Name="dimensionTextBlock" Grid.Column="1" Grid.Row="1" Text="Select Conversion Type:"
 				FontWeight="SemiBold" Margin="5" Padding="2" />
-		<ComboBox x:Name="dimensionComboBox" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" Padding="2" />
+		<ComboBox x:Name="dimensionComboBox" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="5" Padding="2"
+                  SelectionChanged="DimensionComboBox_SelectionChanged" />
 
 		<TextBlock x:Name="inputQuantityTextBlock" Grid.Column="1" Grid.Row="2" Text="Quantity to Convert:"
 				FontWeight="SemiBold" Margin="5" Padding="2" />
@@ -42,7 +43,7 @@
 		<Button x:Name="convertButton" Grid.Column="1" Grid.Row="4" Content="Convert" HorizontalAlignment="Stretch"
 				Margin="5" Padding="2" />
 		<Button x:Name="clearButton" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" Content="Clear"
-				HorizontalAlignment="Stretch" Margin="5" Padding="2" />
+				HorizontalAlignment="Stretch" Margin="5" Padding="2" Click="ClearButton_Click" />
 
 		<TextBlock x:Name="resultsTextBlock" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" Padding="2" />
 	</Grid>
