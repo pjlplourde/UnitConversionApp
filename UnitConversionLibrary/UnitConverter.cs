@@ -8,51 +8,69 @@ using UnitConversionLibrary.Models;
 
 namespace UnitConversionLibrary
 {
+	/// <summary>
+	/// The UnitConverter Class contains the logic to convert between different units
+	/// </summary>
 	public class UnitConverter
 	{
+		/// <summary>
+		/// The Convert method triages to the appropriate private method based on the Dimension input in the dimension parameter, takes in the result of the conversion, and passes it back to the caller as a Data Model of the same type as the input Data Model
+		/// </summary>
+		/// <typeparam name="T">The type of data model (length, mass, temperature) that is to be input and returned; must match the input Dimension</typeparam>
+		/// <typeparam name="U">The type of the desired output unit for the conversion; must be of the same Dimension type as the input Data Model and the input Dimension</typeparam>
+		/// <param name="dimension">The Dimension (length, mass, temperature) for the units to be converted</param>
+		/// <param name="dataModel">The data model to be converted, which contains the quantity, significant digits, and unit properties; must be of the same Dimension type as the input Dimension</param>
+		/// <param name="outputUnit">The desired output unit for the conversion; must be of the same Dimension type as the input Data Model and the input Dimension</param>
+		/// <returns>A converted data model, which contains the quantity, significant digits, and unit properties; will be of the same Dimension type as the input Dimension and will be the same type as the input data model</returns>
+		/// <exception cref="ArgumentException">An ArgumentException will be thrown if there is a data type mismatch between the type of the outputUnit and the input Dimension or between the type of the input dataModel and the input Dimension</exception>
 		public T Convert<T, U>(Dimension dimension, T dataModel, U outputUnit)
 		{
-			T output = default(T);
+			throw new NotImplementedException();
 
-			switch ( dimension ) {
-				case Dimension.Length:
-					if ( dataModel is LengthDataModel lengthDataModel && outputUnit is Length lengthOutputUnit ) {
-						output = (T)(object)ConvertLength(lengthDataModel, lengthOutputUnit);
-					} else if ( dataModel is LengthDataModel ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
-					} else if ( outputUnit is Length ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
-					} else {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
-					}
-					break;
-				case Dimension.Mass:
-					if ( dataModel is MassDataModel massDataModel && outputUnit is Mass massOutputUnit ) {
-						output = (T)(object)ConvertMass(massDataModel, massOutputUnit);
-					} else if ( dataModel is MassDataModel ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
-					} else if ( outputUnit is Mass ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
-					} else {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
-					}
-					break;
-				case Dimension.Temperature:
-					if ( dataModel is TemperatureDataModel temperatureDataModel && outputUnit is Temperature temperatureOutputUnit ) {
-						output = (T)(object)ConvertTemperature(temperatureDataModel, temperatureOutputUnit);
-					} else if ( dataModel is TemperatureDataModel ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
-					} else if ( outputUnit is Temperature ) {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
-					} else {
-						throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
-					}
-					break;
-				default:
-					throw new ArgumentException($"Invalid Data Type: {typeof(T)} cannot be converted to {typeof(U)}.", nameof(dataModel));
-			}
+			//T output;
 
-			return output;
+			//switch ( dimension ) {
+			//	case Dimension.Length:
+			//		if ( dataModel is LengthDataModel lengthDataModel && outputUnit is Length lengthOutputUnit ) {
+			//			output = (T)(object)ConvertLength(lengthDataModel, lengthOutputUnit);
+			//		} else if ( dataModel is LengthDataModel ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
+			//		} else if ( outputUnit is Length ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
+			//		} else {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
+			//		}
+
+			//		break;
+			//	case Dimension.Mass:
+			//		if ( dataModel is MassDataModel massDataModel && outputUnit is Mass massOutputUnit ) {
+			//			output = (T)(object)ConvertMass(massDataModel, massOutputUnit);
+			//		} else if ( dataModel is MassDataModel ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
+			//		} else if ( outputUnit is Mass ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
+			//		} else {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
+			//		}
+
+			//		break;
+			//	case Dimension.Temperature:
+			//		if ( dataModel is TemperatureDataModel temperatureDataModel && outputUnit is Temperature temperatureOutputUnit ) {
+			//			output = (T)(object)ConvertTemperature(temperatureDataModel, temperatureOutputUnit);
+			//		} else if ( dataModel is TemperatureDataModel ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(U)} does not correspond to the selected dimension {dimension}.", nameof(outputUnit));
+			//		} else if ( outputUnit is Temperature ) {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} does not correspond to the selected dimension {dimension}.", nameof(dataModel));
+			//		} else {
+			//			throw new ArgumentException($"Data Type Mismatch: {typeof(T)} or {typeof(U)} does not correspond to the selected dimension {dimension}.");
+			//		}
+
+			//		break;
+			//	default:
+			//		throw new ArgumentException($"Invalid Data Type: {typeof(T)} cannot be converted to {typeof(U)}.", nameof(dataModel));
+			//}
+
+			//return output;
 		}
 
 		private LengthDataModel ConvertLength(LengthDataModel lengthDataModel, Length outputUnit)

@@ -20,6 +20,9 @@ namespace WPFUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		/// <summary>
+		/// Constructor for the MainWindow Class; calls the InitializeComponent method
+		/// </summary>
 		public MainWindow()
 		{
 			InitializeComponent();

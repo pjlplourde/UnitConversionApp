@@ -12,21 +12,21 @@ There is also a Class Library, again targeting .NET 5.0, which will have the log
 
 ### Dependencies
 
--    This project is being built on an x64-based PC using an Intel® Core™ i7-8700 CPU @ 3.20GHz running Windows 10 Pro Build 19044.
+-	This project is being built on an x64-based PC using an Intel® Core™ i7-8700 CPU @ 3.20GHz running Windows 10 Pro Build 19044.
 
--    This project assumes a machine running .NET 5.
+-	This project assumes a machine running .NET 5.
 
 ### installing
 
--    Installation instructions will be published after the first release build (v. 1.0.0.0) is released.
+-	Installation instructions will be published after the first release build (v. 1.0.0.0) is released.
 
 ### Executing program
 
--    Instructions on how to execute the program will be published after the first release build (v. 1.0.0.0) is released.
+-	Instructions on how to execute the program will be published after the first release build (v. 1.0.0.0) is released.
 
 ## Help
 
--    Help documentation will be published after the first release build (v. 1.0.0.0) is released.
+-	Help documentation will be published after the first release build (v. 1.0.0.0) is released.
 
 ## Authors
 
@@ -36,33 +36,38 @@ See also the list of [contributors](https://github.com/pjlplourde/UnitConversion
 
 ## Version History
 
--    0.0.0.6
-     -    UI Design executed for MainWindow.xaml
-     -    Fixed problem in UnitConversionLibrary.UnitConverter.Convert where there was no input parameter for selected output unit
-     -    Fixed problem in UnitConversionLibrary.UnitConverter.Convert where output did not output a data model (including number of significant digits)
-     -    Added Unit Tests for Length Conversions
--    0.0.0.5
-     -    Added .gitattributes file from Visual Studio
--    0.0.0.4
-     -    Updated Acknowledgments section of README.md (missed in 0.0.0.2)
-     -    Created Model and processing classes in class library and test class in unit test project
--    0.0.0.3
-     -    Updated Assembly and File versions in Project files
--    0.0.0.2
-     -    Updated README.md file in Visual Studio Code
--    0.0.0.1
-     -    Initial Code Commit (Visual Studio Project Scaffolding)
--    0.0.0.0
-     -    Initial commit
+-	0.0.0.7
+	-	README.md edits to Roadmap section (thank you to [Theodor Risager](https://www.linkedin.com/in/theodor-risager/)) and to replace spaces with tabs.
+	-	Addition of .editorconfig file at Solution level to keep formatting consistent.
+	-	Added Unit Tests for Mass and Temperature Conversions; built solution and ran tests to confirm all 94 tests failed (RED of Red/Green/Refactor)
+	-	Added XML Comments throughout
+-	0.0.0.6
+	-	UI Design executed for MainWindow.xaml
+	-	Fixed problem in UnitConversionLibrary.UnitConverter.Convert where there was no input parameter for selected output unit
+	-	Fixed problem in UnitConversionLibrary.UnitConverter.Convert where output did not output a data model (including number of significant digits)
+	-	Added Unit Tests for Length Conversions
+-	0.0.0.5
+	-	Added .gitattributes file from Visual Studio
+-	0.0.0.4
+	-	Updated Acknowledgments section of README.md (missed in 0.0.0.2)
+	-	Created Model and processing classes in class library and test class in unit test project
+-	0.0.0.3
+	-	Updated Assembly and File versions in Project files
+-	0.0.0.2
+	-	Updated README.md file in Visual Studio Code
+-	0.0.0.1
+	-	Initial Code Commit (Visual Studio Project Scaffolding)
+-	0.0.0.0
+	-	Initial commit
 
 ## Roadmap
 
--    [] Initial version will be a Minimum Viable Product that will allow the following conversions:
-     -    [] In Length: to/from any of the following: metres, centimetres, miles, yards, feet, inches
-     -    [] In Mass: to/from any of the following: kilograms, grams, pounds (technically pound-equivalents at standard Earth gravity), ounces, slugs (the _real_ unit of mass in the English system).
-     -    [] In Temperature: to/from any of the following: degrees Celsius, degrees Fahrenheit, Kelvin.
--    [] The first major feature upgrade will extend the functionality to other conversion types (dimensions): time, electric current, amount of substance, luminous intensity, area, volume, speed, velocity, acceleration, wave number, density/mass density, specific volume, current density, magnetic field strength, concentration (of amount of substance), luminance, and refractive index.
--    [] The second major feature upgrade will extend the available units for conversion in each of the conversion types.
+-	[ ] Initial version will be a Minimum Viable Product that will allow the following conversions:
+	-	[ ] In Length: to/from any of the following: metres, centimetres, miles, yards, feet, inches
+	-	[ ] In Mass: to/from any of the following: kilograms, grams, pounds (technically pound-equivalents at standard Earth gravity), ounces, slugs (the _real_ unit of mass in the English system).
+	-	[ ] In Temperature: to/from any of the following: degrees Celsius, degrees Fahrenheit, Kelvin.
+-	[ ] The first major feature upgrade will extend the functionality to other conversion types (dimensions): time, electric current, amount of substance, luminous intensity, area, volume, speed, velocity, acceleration, wave number, density/mass density, specific volume, current density, magnetic field strength, concentration (of amount of substance), luminance, and refractive index.
+-	[ ] The second major feature upgrade will extend the available units for conversion in each of the conversion types.
 
 See the [open issues](https://github.com/pjlplourde/UnitConversionApp/issues) for a full list of proposed features (and known issues).
 
@@ -93,7 +98,7 @@ Project Link: https://github.com/pjlplourde/UnitConversionApp
 
 This project was created as part of the C# Challenge from [Tim Corey](https://www.iamtimcorey.com/)
 
--    [C# Challenge for 2022 and Beyond](https://www.youtube.com/watch?v=Dn_xVbIn8iw)
--    [My Blog site](https://spartancsharp.net/)
+-	[C# Challenge for 2022 and Beyond](https://www.youtube.com/watch?v=Dn_xVbIn8iw)
+-	[My Blog site](https://spartancsharp.net/)
 
 A big thank you to all contributors.
