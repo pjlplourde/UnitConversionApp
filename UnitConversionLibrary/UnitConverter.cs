@@ -75,7 +75,15 @@ namespace UnitConversionLibrary
 
 		private LengthDataModel ConvertLength(LengthDataModel lengthDataModel, Length outputUnit)
 		{
-			throw new NotImplementedException();
+			LengthDataModel output = new LengthDataModel();
+			output.Units = outputUnit;
+
+			if ( lengthDataModel.Units == Length.metres )
+			{
+				output.Quantity = ConvertMetresToLengthUnits( lengthDataModel, outputUnit );
+			}
+
+			return output;
 		}
 
 		private MassDataModel ConvertMass(MassDataModel massDataModel, Mass outputUnit)
