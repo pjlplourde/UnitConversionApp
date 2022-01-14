@@ -22,18 +22,13 @@ namespace WPFUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		UnitConverter uc = new UnitConverter();
-		List<Dimension> dimensions = new List<Dimension>() { Dimension.Length };
-        List<LengthUnit> fromLengthUnits = new List<LengthUnit>() { LengthUnit.metres };
-        List<LengthUnit> toLengthUnits = new List<LengthUnit>() { LengthUnit.centimetres, LengthUnit.miles,
-            LengthUnit.yards, LengthUnit.feet, LengthUnit.inches };
-
-        public MainWindow()
+		/// <summary>
+		/// Constructor for the MainWindow Class; calls the InitializeComponent method
+		/// </summary>
+		public MainWindow()
 		{
 			InitializeComponent();
 			WireUpDimensionComboBox();
-            WireUpInputUnitComboBox();
-            WireUpOutputUnitComboBox();
 			inputQuantityTextBox.Focus();
 		}
 
