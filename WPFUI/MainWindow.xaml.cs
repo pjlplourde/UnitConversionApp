@@ -22,6 +22,12 @@ namespace WPFUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		UnitConverter uc = new UnitConverter();
+		List<Dimension> dimensions = new List<Dimension>() { Dimension.Length };
+		List<Length> fromLengthUnits = new List<Length>() { Length.metres };
+		List<Length> toLengthUnits = new List<Length>() { Length.centimetres, Length.miles,
+			Length.yards, Length.feet, Length.inches };
+
 		/// <summary>
 		/// Constructor for the MainWindow Class; calls the InitializeComponent method
 		/// </summary>
@@ -29,6 +35,8 @@ namespace WPFUI
 		{
 			InitializeComponent();
 			WireUpDimensionComboBox();
+			WireUpInputUnitComboBox();
+			WireUpOutputUnitComboBox();
 			inputQuantityTextBox.Focus();
 		}
 
@@ -38,35 +46,35 @@ namespace WPFUI
 			dimensionComboBox.SelectedIndex = 0;
 		}
 
-        private void WireUpInputUnitComboBox()
-        {
-            inputUnitComboBox.ItemsSource = fromLengthUnits;
-            inputUnitComboBox.SelectedIndex = 0;
-        }
+		private void WireUpInputUnitComboBox()
+		{
+			inputUnitComboBox.ItemsSource = fromLengthUnits;
+			inputUnitComboBox.SelectedIndex = 0;
+		}
 
-        private void WireUpOutputUnitComboBox()
-        {
-            outputUnitComboBox.ItemsSource = toLengthUnits;
-            outputUnitComboBox.SelectedIndex = 0;
-        }
+		private void WireUpOutputUnitComboBox()
+		{
+			outputUnitComboBox.ItemsSource = toLengthUnits;
+			outputUnitComboBox.SelectedIndex = 0;
+		}
 
 		private void ConvertButton_Click(object sender, RoutedEventArgs e)
 		{
 			bool isValidInputQuantity = double.TryParse(inputQuantityTextBox.Text, out double inputQuantity);
 
-            if (isValidInputQuantity == true)
-            {
-				LengthDataModel metres = new LengthDataModel() { Quantity = inputQuantity, Units = LengthUnit.metres };
-				LengthUnit outputLengthUnit = (LengthUnit)outputUnitComboBox.SelectedItem;
+			if ( isValidInputQuantity == true )
+			{
+				LengthDataModel metres = new LengthDataModel() { Quantity = inputQuantity, Units = Length.metres };
+				Length outputLengthUnit = (Length)outputUnitComboBox.SelectedItem;
 
 				double result = uc.ConvertMetresToLengthUnits(metres, outputLengthUnit);
 				resultsTextBlock.Text = result.ToString();
 			}
-            else
-            {
+			else
+			{
 				resultsTextBlock.Text = "Invalid input quantity.";
 				inputQuantityTextBox.Clear();
-            }
+			}
 		}
 
 		private void ClearButton_Click(object sender, RoutedEventArgs e)
@@ -76,5 +84,5 @@ namespace WPFUI
 			resultsTextBlock.Text = "";
 			inputQuantityTextBox.Focus();
 		}
-    }
+	}
 }
