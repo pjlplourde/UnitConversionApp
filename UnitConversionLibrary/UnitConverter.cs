@@ -73,7 +73,7 @@ namespace UnitConversionLibrary
 			//return output;
 		}
 
-		private LengthDataModel ConvertLength(LengthDataModel lengthDataModel, LengthUnit outputUnit)
+		private LengthDataModel ConvertLength(LengthDataModel lengthDataModel, Length outputUnit)
 		{
 			throw new NotImplementedException();
 		}
@@ -95,7 +95,7 @@ namespace UnitConversionLibrary
 		/// <param name="lengthOutputUnits"></param>
 		/// <returns></returns>
 		/// <exception cref="Exception"></exception>
-		public double ConvertMetresToLengthUnits(LengthDataModel metres, LengthUnit lengthOutputUnits)
+		public double ConvertMetresToLengthUnits(LengthDataModel metres, Length lengthOutputUnits)
 		{
 			double output;
 
@@ -105,23 +105,23 @@ namespace UnitConversionLibrary
 			const double milesInOneMetre = 0.0006213712;
 			const double centimetresInOneMetre = 100;
 
-			if (lengthOutputUnits == LengthUnit.inches)
+			if (lengthOutputUnits == Length.inches)
 			{
 				output = metres.Quantity * inchesInOneMetre;
 			}
-			else if (lengthOutputUnits == LengthUnit.feet)
+			else if (lengthOutputUnits == Length.feet)
 			{
 				output = metres.Quantity * feetInOneMetre;
 			}
-			else if (lengthOutputUnits == LengthUnit.yards)
+			else if (lengthOutputUnits == Length.yards)
 			{
 				output = metres.Quantity * yardsInOneMetre;
 			}
-			else if (lengthOutputUnits == LengthUnit.miles)
+			else if (lengthOutputUnits == Length.miles)
 			{
 				output = metres.Quantity * milesInOneMetre;
 			}
-			else if (lengthOutputUnits == LengthUnit.centimetres)
+			else if (lengthOutputUnits == Length.centimetres)
 			{
 				output = metres.Quantity * centimetresInOneMetre;
 			}
