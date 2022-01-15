@@ -26,43 +26,43 @@ namespace UnitConversionLibrary.Tests
 		/// <param name="expectedQuantity">The expected quantity in the simulated output data model if the conversion is correctly performed</param>
 		/// <param name="expectedSignificantDigits">The expected significant digits in the simulated output data model if the conversion is correctly performed</param>
 		[Theory]
-		[InlineData(1.00, 3, Length.metres, Length.metres, 1.00, 3)]
-		[InlineData(1.00, 3, Length.metres, Length.centimetres, 100.0, 3)]
-		[InlineData(1.00, 3, Length.metres, Length.miles, 0.0002071237307, 3)]
-		[InlineData(1.00, 3, Length.metres, Length.yards, 1.093613298, 3)]
-		[InlineData(1.00, 3, Length.metres, Length.feet, 3.280939895, 3)]
-		[InlineData(1.00, 3, Length.metres, Length.inches, 39.37007874, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.metres, 0.0100, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.centimetres, 1.00, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.miles, 0.000002071237307, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.yards, 0.01093613298, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.feet, 0.3280939895, 3)]
-		[InlineData(1.00, 3, Length.centimetres, Length.inches, 0.3937007874, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.metres, 1609.344, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.centimetres, 160934.4, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.miles, 1.00, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.yards, 1760.0, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.feet, 5280.0, 3)]
-		[InlineData(1.00, 3, Length.miles, Length.inches, 63360.0, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.metres, 0.9144, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.centimetres, 91.44, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.miles, 0.0005681818182, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.yards, 1.00, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.feet, 3.00, 3)]
-		[InlineData(1.00, 3, Length.yards, Length.inches, 36.0, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.metres, 0.3048, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.centimetres, 30.48, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.miles, 0.0001893939394, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.yards, 0.3333333333, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.feet, 1.00, 3)]
-		[InlineData(1.00, 3, Length.feet, Length.inches, 12.0, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.metres, 0.0254, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.centimetres, 2.54, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.miles, 0.00001578282828, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.yards, 0.02777777778, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.feet, 0.08333333333, 3)]
-		[InlineData(1.00, 3, Length.inches, Length.inches, 1.00, 3)]
-		public void ConvertLengthShouldReturnExpectedValue(double inputQuantity, int significantDigits, Length inputUnit, Length outputUnit, double expectedQuantity, int expectedSignificantDigits)
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.metres, 1.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.centimetres, 100.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.miles, 0.0002071237307, 3)]
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.yards, 1.093613298, 3)]
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.feet, 3.280939895, 3)]
+		[InlineData(1.00, 3, LengthUnit.metres, LengthUnit.inches, 39.37007874, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.metres, 0.0100, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.centimetres, 1.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.miles, 0.000002071237307, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.yards, 0.01093613298, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.feet, 0.3280939895, 3)]
+		[InlineData(1.00, 3, LengthUnit.centimetres, LengthUnit.inches, 0.3937007874, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.metres, 1609.344, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.centimetres, 160934.4, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.miles, 1.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.yards, 1760.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.feet, 5280.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.miles, LengthUnit.inches, 63360.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.metres, 0.9144, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.centimetres, 91.44, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.miles, 0.0005681818182, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.yards, 1.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.feet, 3.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.yards, LengthUnit.inches, 36.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.metres, 0.3048, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.centimetres, 30.48, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.miles, 0.0001893939394, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.yards, 0.3333333333, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.feet, 1.00, 3)]
+		[InlineData(1.00, 3, LengthUnit.feet, LengthUnit.inches, 12.0, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.metres, 0.0254, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.centimetres, 2.54, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.miles, 0.00001578282828, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.yards, 0.02777777778, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.feet, 0.08333333333, 3)]
+		[InlineData(1.00, 3, LengthUnit.inches, LengthUnit.inches, 1.00, 3)]
+		public void ConvertLengthShouldReturnExpectedValue(double inputQuantity, int significantDigits, LengthUnit inputUnit, LengthUnit outputUnit, double expectedQuantity, int expectedSignificantDigits)
 		{
 			// Arrange
 			UnitConverter converter = new UnitConverter();
@@ -103,9 +103,9 @@ namespace UnitConversionLibrary.Tests
 			LengthDataModel sampleData = new LengthDataModel {
 				Quantity = 1.00,
 				SignificantDigits = 3,
-				Units = Length.metres
+				Units = LengthUnit.metres
 			};
-			Length lengthOutputUnit = Length.metres;
+			LengthUnit lengthOutputUnit = LengthUnit.metres;
 			Mass massOutputUnit = Mass.kilograms;
 			Temperature temperatureOutputUnit = Temperature.Kelvin;
 

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UnitConversionLibrary;
+using UnitConversionLibrary.Models;
 
 namespace WPFUI
 {
@@ -21,6 +22,12 @@ namespace WPFUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		UnitConverter uc = new UnitConverter();
+		List<Dimension> dimensions = new List<Dimension>() { Dimension.Length };
+		List<Length> fromLengthUnits = new List<Length>() { Length.metres };
+		List<Length> toLengthUnits = new List<Length>() { Length.centimetres, Length.miles,
+			Length.yards, Length.feet, Length.inches };
+
 		/// <summary>
 		/// Constructor for the MainWindow Class; calls the InitializeComponent method
 		/// </summary>
@@ -28,42 +35,45 @@ namespace WPFUI
 		{
 			InitializeComponent();
 			WireUpDimensionComboBox();
+			WireUpInputUnitComboBox();
+			WireUpOutputUnitComboBox();
 			inputQuantityTextBox.Focus();
 		}
 
 		private void WireUpDimensionComboBox()
 		{
-			dimensionComboBox.ItemsSource = Enum.GetValues(typeof(Dimension));
+			dimensionComboBox.ItemsSource = dimensions;
 			dimensionComboBox.SelectedIndex = 0;
 		}
 
-		private void DimensionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void WireUpInputUnitComboBox()
 		{
-			Dimension selectedDimension = (Dimension)dimensionComboBox.SelectedItem;
+			inputUnitComboBox.ItemsSource = fromLengthUnits;
+			inputUnitComboBox.SelectedIndex = 0;
+		}
 
-			if (selectedDimension == Dimension.Length)
+		private void WireUpOutputUnitComboBox()
+		{
+			outputUnitComboBox.ItemsSource = toLengthUnits;
+			outputUnitComboBox.SelectedIndex = 0;
+		}
+
+		private void ConvertButton_Click(object sender, RoutedEventArgs e)
+		{
+			bool isValidInputQuantity = double.TryParse(inputQuantityTextBox.Text, out double inputQuantity);
+
+			if ( isValidInputQuantity == true )
 			{
-				inputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Length));
-				inputUnitComboBox.SelectedIndex = 0;
+				LengthDataModel metres = new LengthDataModel() { Quantity = inputQuantity, Units = Length.metres };
+				Length outputLengthUnit = (Length)outputUnitComboBox.SelectedItem;
 
-				outputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Length));
-				outputUnitComboBox.SelectedIndex = 0;
+				double result = uc.ConvertMetresToLengthUnits(metres, outputLengthUnit);
+				resultsTextBlock.Text = result.ToString();
 			}
-			else if (selectedDimension == Dimension.Mass)
+			else
 			{
-				inputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Mass));
-				inputUnitComboBox.SelectedIndex = 0;
-
-				outputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Mass));
-				outputUnitComboBox.SelectedIndex = 0;
-			}
-			else if (selectedDimension == Dimension.Temperature)
-			{
-				inputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Temperature));
-				inputUnitComboBox.SelectedIndex = 0;
-
-				outputUnitComboBox.ItemsSource = Enum.GetValues(typeof(Temperature));
-				outputUnitComboBox.SelectedIndex = 0;
+				resultsTextBlock.Text = "Invalid input quantity.";
+				inputQuantityTextBox.Clear();
 			}
 		}
 
@@ -71,6 +81,7 @@ namespace WPFUI
 		{
 			dimensionComboBox.SelectedIndex = 0;
 			inputQuantityTextBox.Clear();
+			resultsTextBlock.Text = "";
 			inputQuantityTextBox.Focus();
 		}
 	}

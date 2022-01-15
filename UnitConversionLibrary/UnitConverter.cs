@@ -75,7 +75,15 @@ namespace UnitConversionLibrary
 
 		private LengthDataModel ConvertLength(LengthDataModel lengthDataModel, Length outputUnit)
 		{
-			throw new NotImplementedException();
+			LengthDataModel output = new LengthDataModel();
+			output.Units = outputUnit;
+
+			if ( lengthDataModel.Units == Length.metres )
+			{
+				output.Quantity = ConvertMetresToLengthUnits( lengthDataModel, outputUnit );
+			}
+
+			return output;
 		}
 
 		private MassDataModel ConvertMass(MassDataModel massDataModel, Mass outputUnit)
@@ -86,6 +94,51 @@ namespace UnitConversionLibrary
 		private TemperatureDataModel ConvertTemperature(TemperatureDataModel temperatureDataModel, Temperature outputUnit)
 		{
 			throw new NotImplementedException();
+		}
+
+		/// <summary>
+		/// Converts metres to other units of length.
+		/// </summary>
+		/// <param name="metres"></param>
+		/// <param name="lengthOutputUnits"></param>
+		/// <returns></returns>
+		/// <exception cref="Exception"></exception>
+		public double ConvertMetresToLengthUnits(LengthDataModel metres, Length lengthOutputUnits)
+		{
+			double output;
+
+			const double inchesInOneMetre = 39.3700787402;
+			const double feetInOneMetre = 3.28084;
+			const double yardsInOneMetre = 1.0936132983;
+			const double milesInOneMetre = 0.0006213712;
+			const double centimetresInOneMetre = 100;
+
+			if (lengthOutputUnits == Length.inches)
+			{
+				output = metres.Quantity * inchesInOneMetre;
+			}
+			else if (lengthOutputUnits == Length.feet)
+			{
+				output = metres.Quantity * feetInOneMetre;
+			}
+			else if (lengthOutputUnits == Length.yards)
+			{
+				output = metres.Quantity * yardsInOneMetre;
+			}
+			else if (lengthOutputUnits == Length.miles)
+			{
+				output = metres.Quantity * milesInOneMetre;
+			}
+			else if (lengthOutputUnits == Length.centimetres)
+			{
+				output = metres.Quantity * centimetresInOneMetre;
+			}
+			else
+			{
+				throw new Exception("Invalid conversion");
+			}
+
+			return output;
 		}
 	}
 }
